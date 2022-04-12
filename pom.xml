@@ -32,21 +32,17 @@
             <dependency>
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
-                <version>5.4.0</version>
+                <version>5.7.22</version>
             </dependency>
 
-            <dependency>
-                <groupId>cn.hutool</groupId>
-                <artifactId>hutool-all</artifactId>
-            </dependency>
 
             <!-- google 工具类 -->
             <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
-                <version>16.0.1</version>
+                <version>31.1-jre</version>
+                <scope>compile</scope>
             </dependency>
-
         </dependencies>
     </dependencyManagement>
 </project>

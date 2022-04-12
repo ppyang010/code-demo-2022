@@ -1,14 +1,18 @@
 package com.code.webflux.api;
 
 import com.code.webflux.model.People;
+import com.google.common.collect.Lists;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
+ *
+ * RESTful API
  * @author ccy
  * @description
  * @time 2022/4/12 1:37 PM
@@ -31,8 +35,10 @@ public class Hello1Controller {
     public Flux<People> list() {
         People of = People.of(1, "ccy1", 0);
         People of1 = People.of(1, "ccy2", 0);
-
-        return null;
+        List<People> peopleList = new ArrayList<>();
+        peopleList.add(of);
+        peopleList.add(of1);
+        return Flux.fromIterable(peopleList);
     }
 
 }
