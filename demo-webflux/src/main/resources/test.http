@@ -1,0 +1,18 @@
+###
+GET http://localhost:9000/hello1/get?name=ccy
+
+
+###
+GET http://localhost:9000/hello1/list
+
+
+###
+GET http://localhost:9000/hello2/one
+
+
+###
+GET http://localhost:9000/hello2/get/ccy2?age=99
+
+
+###
+GET http://localhost:9000/hello2/stream/line
