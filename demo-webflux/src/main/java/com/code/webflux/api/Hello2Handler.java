@@ -95,7 +95,7 @@ public class Hello2Handler {
             peopleList.add(People.of(i, "ccy" + i, i));
         }
         Flux<People> peopleFlux = Flux.fromIterable(peopleList).delayElements(Duration.ofSeconds(1));
-
+        //sse
 //        return ServerResponse.ok().contentType(MediaType.TEXT_EVENT_STREAM)
 //                .body(peopleFlux,People.class);
 

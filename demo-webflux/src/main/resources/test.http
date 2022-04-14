@@ -16,3 +16,9 @@ GET http://localhost:9000/hello2/get/ccy2?age=99
 
 ###
 GET http://localhost:9000/hello2/stream/line
+
+###
+GET http://localhost:9000/sse/random
+
+###
+GET http://localhost:9000/sse/random2
