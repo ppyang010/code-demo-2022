@@ -57,7 +57,12 @@ public class WebClientDemo {
 
 
     }
+    @Test
+    public void reactorTestO()   {
 
+
+
+    }
 
     @Test
     public void testO() throws InterruptedException {
