@@ -1,18 +1,23 @@
 package com.code.webflux.api;
 
+import cn.hutool.http.HttpUtil;
 import com.code.webflux.model.People;
-import com.google.common.collect.Lists;
+import com.code.webflux.openfeign.BaiduClient;
+import feign.Feign;
+import feign.form.FormEncoder;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.ArrayList;
+import java.util.BitSet;
 import java.util.List;
 
 /**
- *
  * RESTful API
+ *
  * @author ccy
  * @description
  * @time 2022/4/12 1:37 PM
@@ -23,11 +28,17 @@ import java.util.List;
  */
 @RestController
 public class Hello1Controller {
+    @Autowired
+    private BaiduClient baiduClient;
 
     @GetMapping("/hello1/get")
     public Mono<People> get(String name) {
         People of = People.of(1, name, 0);
         // ...
+//        String resp = HttpUtil.get("https://www.baidu.com");
+//        System.out.println(resp.length());
+        String index = baiduClient.index();
+        System.out.println(index.length());
         return Mono.justOrEmpty(of);
     }
 
