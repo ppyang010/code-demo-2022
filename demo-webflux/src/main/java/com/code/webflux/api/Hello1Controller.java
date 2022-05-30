@@ -5,6 +5,7 @@ import com.code.webflux.model.People;
 import com.code.webflux.openfeign.BaiduClient;
 import feign.Feign;
 import feign.form.FormEncoder;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,6 +28,7 @@ import java.util.List;
  * Flux(返回0-n个元素)
  */
 @RestController
+@Slf4j
 public class Hello1Controller {
     @Autowired
     private BaiduClient baiduClient;
@@ -37,8 +39,17 @@ public class Hello1Controller {
         // ...
 //        String resp = HttpUtil.get("https://www.baidu.com");
 //        System.out.println(resp.length());
-        String index = baiduClient.index();
-        System.out.println(index.length());
+//        String index = baiduClient.index();
+//        System.out.println(index.length());
+        log.info("/hello1/get start");
+        Mono<Integer> defer = Mono.defer(() -> {
+            log.info("/hello1/get defer");
+            String index = baiduClient.index();
+            return Mono.justOrEmpty(index.length());
+        });
+        Integer block = defer.block();
+        log.info("/hello1/get end");
+        System.out.println(block);
         return Mono.justOrEmpty(of);
     }
 
