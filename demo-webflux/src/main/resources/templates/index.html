@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>webflux_index</title>
+</head>
+
+<script th:inline="javascript">
+    window.abTestInfo = [[${session.abTestInfo}]]
+</script>
+
+<body>
+webflux_index
+
+<p th:text="'第一个页面！ ' + ${modelText} + '!'"></p>
+
+<p th:text="'request param = ' + ${param.name} + ' '"></p>
+
+<p th:text="'spring bean val = ' + ${@thymeleafValService.getVal()}">\</p>
+
+
+<p th:text="'web session val = ' +${session.info}"></p>
+</body>
+</html>
