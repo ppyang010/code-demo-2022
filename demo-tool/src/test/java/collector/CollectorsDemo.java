@@ -1,21 +1,14 @@
 package collector;
 
-import cn.hutool.core.util.RandomUtil;
-import cn.hutool.json.JSON;
-import cn.hutool.json.JSONUtil;
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Table;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
-import org.checkerframework.checker.nullness.qual.Nullable;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.function.Function;
-import java.util.stream.Collectors;
 
 public class CollectorsDemo {
 
@@ -40,7 +33,7 @@ public class CollectorsDemo {
 //        System.out.println(JSONUtil.toJsonStr(collect));
 //        HashBasedTable<String, Integer, User> table = HashBasedTable.create();
 
-        HashBasedTable<String, Integer, User> collect1 = list.stream().collect(TableCollectorsImpl.ofTableCollectors(User::getUsername, User::getExamType, Function.identity()));
+        HashBasedTable<String, Integer, User> collect1 = list.stream().collect(BizCollectors.toTable(User::getUsername, User::getExamType, Function.identity()));
 
         for (Table.Cell<String, Integer, User> cell : collect1.cellSet()) {
             System.out.println("-------------------------");
