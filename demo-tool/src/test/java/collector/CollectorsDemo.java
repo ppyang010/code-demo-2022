@@ -21,6 +21,7 @@ public class CollectorsDemo {
             user.setExamType(i % 4);
             list.add(user);
         }
+        //测试重复的情况
         int dupIndex = 1;
         User userDuplication = new User();
         userDuplication.setUsername("dxy_" + dupIndex);
