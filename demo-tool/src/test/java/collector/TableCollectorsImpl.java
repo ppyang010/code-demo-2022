@@ -2,6 +2,8 @@ package collector;
 
 import com.google.common.collect.HashBasedTable;
 
+import java.util.Collections;
+import java.util.EnumSet;
 import java.util.Set;
 import java.util.function.BiConsumer;
 import java.util.function.BinaryOperator;
@@ -22,9 +24,34 @@ public class TableCollectorsImpl<T, A, R> implements Collector<T, A, R> {
     private final Set<Characteristics> characteristics;
 
 
-    public static <T, A, R> Collector <T, A, R> ofTableCollectors() {
+    /**
+     * @param rowMapper
+     * @param colMapper
+     * @param valueMapper
+     * @param <ROW>
+     * @param <COL>
+     * @param <U>
+     * @param <T>         入参,stream流中的对象
+     * @param <A>
+     * @param <M>
+     * @return
+     */
+    public static <ROW, COL, U, T, A extends HashBasedTable<ROW, COL, U>, M extends HashBasedTable<ROW, COL, U>>
+    Collector<T, A, M> ofTableCollectors(Function<? super T, ? extends ROW> rowMapper,
+                                         Function<? super T, ? extends COL> colMapper,
+                                         Function<? super T, ? extends U> valueMapper
+    ) {
         Supplier tableSupplier = HashBasedTable::create;
-        return new TableCollectorsImpl(tableSupplier,null,null,null,null);
+        BiConsumer<M, T> accumulator
+                = (map, element) -> map.put(rowMapper.apply(element), colMapper.apply(element), valueMapper.apply(element));
+        BinaryOperator<M> mergerCombiner = (m1, m2) -> {
+            m1.putAll(m2);
+            return m1;
+        };
+        Function<A, M> finisher = i -> (M) i;
+        Set<Collector.Characteristics> characteristicsSet
+                = Collections.unmodifiableSet(EnumSet.of(Collector.Characteristics.IDENTITY_FINISH));
+        return new TableCollectorsImpl(tableSupplier, accumulator, mergerCombiner, finisher, characteristicsSet);
     }
 
 
