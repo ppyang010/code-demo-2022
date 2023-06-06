@@ -19,18 +19,18 @@ import java.util.stream.Collector;
 public class BizCollectors {
 
     /**
+     * guava table collector
      * row col 相同的情况下 后来的会覆盖先来的
      *
-     * @param rowMapper 获取table row function
-     * @param colMapper  获取table cell function
+     * @param rowMapper   获取table row function
+     * @param colMapper   获取table cell function
      * @param valueMapper 获取table value function
      * @param <ROW>
      * @param <COL>
      * @param <U>
      * @param <T>         入参,stream流中的对象
-     * @param <A>
-     * @param <M>
-     *
+     * @param <A>         中间对象  在这里为HashBasedTable
+     * @param <M>         最后返回的对象 在这里为HashBasedTable
      * @return guava table集合对象
      */
     public static <ROW, COL, U, T, A extends HashBasedTable<ROW, COL, U>, M extends HashBasedTable<ROW, COL, U>>
@@ -50,6 +50,7 @@ public class BizCollectors {
                 = Collections.unmodifiableSet(EnumSet.of(Collector.Characteristics.IDENTITY_FINISH));
         return new BizCollectorImpl(tableSupplier, accumulator, mergerCombiner, finisher, characteristicsSet);
     }
+
     static class BizCollectorImpl<T, A, R> implements Collector<T, A, R> {
         private final Supplier<A> supplier;
         private final BiConsumer<A, T> accumulator;
@@ -58,14 +59,11 @@ public class BizCollectors {
         private final Set<Characteristics> characteristics;
 
 
-
-
-
         BizCollectorImpl(Supplier<A> supplier,
-                            BiConsumer<A, T> accumulator,
-                            BinaryOperator<A> combiner,
-                            Function<A, R> finisher,
-                            Set<Characteristics> characteristics) {
+                         BiConsumer<A, T> accumulator,
+                         BinaryOperator<A> combiner,
+                         Function<A, R> finisher,
+                         Set<Characteristics> characteristics) {
             this.supplier = supplier;
             this.accumulator = accumulator;
             this.combiner = combiner;
