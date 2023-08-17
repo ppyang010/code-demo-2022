@@ -23,5 +23,11 @@
             <artifactId>hutool-all</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>io.foldright</groupId>
+            <artifactId>cffu</artifactId>
+            <version>0.9.8</version>
+        </dependency>
+
     </dependencies>
 </project>
