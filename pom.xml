@@ -9,6 +9,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>demo-java-17</module>
+        <module>demo-video-parser</module>
     </modules>
 
     <packaging>pom</packaging>
