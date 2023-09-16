@@ -5,7 +5,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 @Component
-public class MyCommandRunner implements CommandLineRunner {
+public class BrowserCommandRunner implements CommandLineRunner {
 
     @Value("${spring.web.loginurl}")
     private String loginUrl;
