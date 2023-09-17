@@ -1,11 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>video_index</title>
-</head>
+    <title>Folder Selection Form</title>
+    <script>
+        function getFile(value){
+            // 获取文本框dom
+            var doc = document.getElementById('download_directory');
+            // 获取上传控件dom
+            var upload = document.getElementById('upload');
+            // 获取文件名
+            var fileName = upload.files[0].name;
+            // 获取文件路径
+            var filePath = upload.value;
+            // 将文件名载入文本框
+            doc.value = filePath;
 
+            console.log(fileName);
+            console.log(filePath);
+        }
+    </script>
+</head>
 <body>
-video index
+<h1>Folder Selection Form</h1>
+
+<form>
+    <label for="download_directory">下载路径:</label>
+    <input type="text" id="download_directory" name="name" required><br><br>
+
+    <label for="add">视频地址:</label>
+    <input type="text" id="add" name="add" required><br><br>
+
+    <label for="title">视频标题:</label>
+    <input type="text" id="title" name="title" required><br><br>
+
+    <input type="submit" value="Submit">
+</form>
+
 </body>
 </html>
