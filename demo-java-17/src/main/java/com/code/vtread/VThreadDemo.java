@@ -4,8 +4,9 @@ package com.code.vtread;
 public class VThreadDemo {
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Thread.ofVirtual().name("v-test").start(new SimpleThread());
+        Thread.sleep(1000);
     }
 
     public static class SimpleThread implements Runnable{
