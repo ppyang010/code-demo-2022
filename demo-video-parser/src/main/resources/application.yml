@@ -1,0 +1,12 @@
+server:
+  port: 6900
+spring:
+  auto:
+    openurl: true # 是否自动打开浏览器，false 为否
+  web:
+    loginurl: http://localhost:6900 # 指定加载的页面地址
+  mvc:
+
+    view:
+      prefix: /
+      suffix: .html
