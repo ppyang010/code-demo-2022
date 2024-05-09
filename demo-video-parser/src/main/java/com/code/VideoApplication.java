@@ -13,11 +13,11 @@ import java.net.InetAddress;
 @SpringBootApplication
 @Slf4j
 
-public class DemoApplication {
+public class VideoApplication {
 
     public static void main(String[] args) {
         try {
-            ConfigurableApplicationContext application = SpringApplication.run(DemoApplication.class, args);
+            ConfigurableApplicationContext application = SpringApplication.run(VideoApplication.class, args);
 
             Environment env = application.getEnvironment();
             String ip = InetAddress.getLocalHost().getHostAddress();

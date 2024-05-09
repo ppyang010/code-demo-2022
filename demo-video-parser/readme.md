@@ -1,0 +1,1 @@
+https://github.com/opensourceteams/google-sdk-speech-to-text?tab=readme-ov-file
