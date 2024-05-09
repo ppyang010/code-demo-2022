@@ -1,0 +1,18 @@
+curl 'https://snapany.com/api/extract1' \
+-H 'accept: */*' \
+-H 'accept-language: zh' \
+-H 'content-type: application/json' \
+-H 'cookie: NEXT_LOCALE=zh; _ga=GA1.1.1261622510.1712677775; __gads=ID=ed0198c523a5a828:T=1712754247:RT=1712754247:S=ALNI_Mb082X-UUvDyNj5Ltmx-ENz6JjpYw; __gpi=UID=00000de664b58f83:T=1712754247:RT=1712754247:S=ALNI_MaRDBBc9TR4LW7mO-iStAuf_4HDiA; __eoi=ID=765dbe28d045a7f3:T=1712754247:RT=1712754247:S=AA-AfjZRwDaX6iJces5578ATcApF; _ga_8BFPWBG3X1=GS1.1.1715261920.5.1.1715261953.0.0.0' \
+-H 'g-footer: 0babfcaa42d680b00f2f01a4647ba5ff' \
+-H 'g-timestamp: 1715262060304' \
+-H 'origin: https://snapany.com' \
+-H 'priority: u=1, i' \
+-H 'referer: https://snapany.com/zh/bilibili?link=https://www.bilibili.com/video/BV1nm421u7me/?vd_source=2d31c0efe43014d77fdedd13666e3af4' \
+-H 'sec-ch-ua: "Chromium";v="124", "Google Chrome";v="124", "Not-A.Brand";v="99"' \
+-H 'sec-ch-ua-mobile: ?0' \
+-H 'sec-ch-ua-platform: "Windows"' \
+-H 'sec-fetch-dest: empty' \
+-H 'sec-fetch-mode: cors' \
+-H 'sec-fetch-site: same-origin' \
+-H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36' \
+--data-raw '{"link":"https://www.bilibili.com/video/BV1nm421u7me/?vd_source=2d31c0efe43014d77fdedd13666e3af4"}'
