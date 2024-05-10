@@ -10,14 +10,5 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class VideoDownloadController {
 
-    @GetMapping({"/index", "/"})
-    public String index() {
-        return "index";
-    }
 
-
-    @PostMapping("/do/video/parse")
-    public String doVideoParse(){
-        return "";
-    }
 }

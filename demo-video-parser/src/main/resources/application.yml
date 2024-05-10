@@ -10,3 +10,8 @@ spring:
     view:
       prefix: /
       suffix: .html
+
+logging:
+  file:
+    encoding: UTF-8
+    name: logs/demo-video-parser.log
