@@ -28,6 +28,7 @@ nbdist/
 /work/
 /derby.log
 /logs/
+/config/
 
 E:\\download\\test\\logback.log
 G:\\test\\logback.log

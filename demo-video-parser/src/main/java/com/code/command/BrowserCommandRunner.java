@@ -15,6 +15,9 @@ public class BrowserCommandRunner implements CommandLineRunner {
     @Value("${spring.auto.openurl}")
     private boolean isOpen;
 
+    @Value("${extra.name}")
+    private String extraConfigName;
+
     @Override
     public void run(String... args) {
         String os = getOs();
@@ -37,6 +40,7 @@ public class BrowserCommandRunner implements CommandLineRunner {
         log.info("Operating System Name: " + osName);
         log.info("Operating System Version: " + osVersion);
         log.info("Operating System Architecture: " + osArch);
+        log.info("extraConfigName: " + extraConfigName);
 
         String os = null;
         // 判断操作系统类型

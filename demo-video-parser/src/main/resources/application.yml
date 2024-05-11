@@ -6,10 +6,11 @@ spring:
   web:
     loginurl: http://localhost:6900 # 指定加载的页面地址
   mvc:
-
     view:
       prefix: /
       suffix: .html
+  config:
+    import: file:./config/application-extra.yaml
 
 logging:
   file:
