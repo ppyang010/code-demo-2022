@@ -49,6 +49,12 @@
             <version>31.1-jre</version>
             <scope>compile</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.5.14</version>
+        </dependency>
     </dependencies>
 
 
