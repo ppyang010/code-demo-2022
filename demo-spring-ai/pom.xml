@@ -28,7 +28,7 @@
     </scm>
     <properties>
         <java.version>21</java.version>
-        <spring-ai.version>0.8.1-SNAPSHOT</spring-ai.version>
+        <spring-ai.version>1.0.0-M6</spring-ai.version>
     </properties>
     <dependencies>
         <dependency>
@@ -57,7 +57,16 @@
         </dependencies>
     </dependencyManagement>
 
-<!--    <repositories>-->
+    <repositories>
+        <!-- 阿里云仓库 -->
+        <repository>
+            <id>aliyun</id>
+            <url>https://maven.aliyun.com/repository/public</url>
+        </repository>
+        <repository>
+            <id>spring-releases</id>
+            <url>https://repo.spring.io/release</url>
+        </repository>
 <!--        <repository>-->
 <!--            <id>spring-milestones</id>-->
 <!--            <name>Spring Milestones</name>-->
@@ -74,7 +83,7 @@
 <!--                <enabled>false</enabled>-->
 <!--            </releases>-->
 <!--        </repository>-->
-<!--    </repositories>-->
+    </repositories>
 
 
 </project>
